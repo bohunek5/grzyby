@@ -23,6 +23,11 @@
   --color-danger-bg: rgba(207, 92, 92, 0.15);
   --color-warning: #f5b041;
   
+  --hero-overlay-start: rgba(7, 12, 9, 0.4);
+  --hero-overlay-end: rgba(7, 12, 9, 0.95);
+  --nav-bg: rgba(7, 12, 9, 0.55); /* APPLE STYLE: bardziej przezroczyste */
+  --logo-color: #ffffff;
+  
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Outfit', sans-serif;
   
@@ -30,6 +35,28 @@
   --transition-fast: all 0.2s ease-in-out;
   
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+[data-theme="light"] {
+  --color-bg-darkest: #fdfaf2; /* Przyjemny jasno-żółto-kremowy */
+  --color-bg-dark: #fbf8ed;
+  --color-bg-card: rgba(255, 255, 255, 0.85);
+  --color-border: rgba(212, 175, 55, 0.3);
+  --color-border-hover: rgba(212, 175, 55, 0.8);
+  
+  --color-primary: #8b5a2b; /* Ciepły brąz / leśny odcień */
+  --color-primary-glow: rgba(139, 90, 43, 0.2);
+  --color-accent: #d4af37;
+  --color-text-main: #30261b;
+  --color-text-muted: #6e6255;
+  --color-text-light: #1c150e;
+  
+  --hero-overlay-start: rgba(253, 250, 242, 0.2);
+  --hero-overlay-end: rgba(253, 250, 242, 1);
+  --nav-bg: rgba(253, 250, 242, 0.55); /* APPLE STYLE */
+  --logo-color: #30261b;
+  
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
 }
 
 /* ── BAZOWE STYLIZACJE ───────────────────────────────────────────────────── */
@@ -425,7 +452,7 @@ a {
 
 .filter-groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 1.5rem;
 }
 
@@ -485,7 +512,7 @@ a {
 /* ── SIATKA KART (MUSHROOM GRID) ────────────────────────────────────────── */
 .mushroom-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 2.5rem;
 }
 
@@ -618,6 +645,9 @@ a {
   border: 1px solid var(--color-border);
   width: 90%;
   max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
@@ -654,7 +684,8 @@ a {
 }
 
 .modal-header-img {
-  height: 280px;
+  height: 250px;
+  flex-shrink: 0;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -672,6 +703,8 @@ a {
 
 .modal-body {
   padding: 2.5rem;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .modal-meta {
@@ -756,7 +789,7 @@ a {
 /* Cechy w modal */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -923,7 +956,7 @@ a {
 
 .quiz-options {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -1021,6 +1054,210 @@ a {
 }
 
 /* ── CHECKLISTA GRZYBIARZA ──────────────────────────────────────────────── */
+.essentials-checklist {
+  background: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  padding: 0.8rem;
+  border-radius: 8px;
+  color: var(--color-text-light);
+}
+
+/* ── SEKCJA MAPY (MAP SECTION) ───────────────────────────────────────────── */
+.map-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.map-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.map-controls .search-box-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+#map-search-input {
+  padding-right: 120px; /* Miejsce na przycisk Szukaj */
+}
+
+#btn-map-search {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.mushroom-map-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  z-index: 1;
+}
+
+.map-legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .map-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .map-controls .search-box-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #map-search-input {
+    padding-right: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  #btn-map-search {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+  .mushroom-map-container {
+    height: 400px;
+  }
+}
+
+/* ── ANIMACJE OŻYWIAJĄCE (LIVELY ANIMATIONS) ───────────────────────────── */
+@keyframes fallSpore {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  70% { opacity: 0.5; }
+  100% { transform: translateY(120px) translateX(20px); opacity: 0; }
+}
+.spore {
+  animation: fallSpore 4s infinite linear;
+}
+.spores circle:nth-child(1) { animation-delay: 0.2s; animation-duration: 4.5s; }
+.spores circle:nth-child(2) { animation-delay: 1.5s; animation-duration: 3.2s; }
+.spores circle:nth-child(3) { animation-delay: 0.8s; animation-duration: 5s; }
+.spores circle:nth-child(4) { animation-delay: 2.1s; animation-duration: 4s; }
+.spores circle:nth-child(5) { animation-delay: 1.1s; animation-duration: 3.8s; }
+.spores circle:nth-child(6) { animation-delay: 2.7s; animation-duration: 4.2s; }
+
+@keyframes windGrass {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(4deg); }
+}
+.grass-blade {
+  transform-origin: bottom center;
+  animation: windGrass 5s infinite ease-in-out;
+}
+.g1 { animation-delay: 0s; animation-duration: 5s; }
+.g2 { animation-delay: -1s; animation-duration: 4.5s; }
+.g3 { animation-delay: -2s; animation-duration: 5.5s; }
+.g4 { animation-delay: -0.5s; animation-duration: 4.8s; }
+
+@keyframes crawl {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  50% { transform: translateX(-15px) rotate(-5deg); }
+}
+.snail-anim {
+  animation: crawl 12s infinite ease-in-out;
+}
+
+@keyframes dewGlisten {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+.dew-drop {
+  transform-origin: center;
+  animation: dewGlisten 4s infinite ease-in-out;
+}
+
+/* ── ŚWIETLIKI W TLE (FIREFLIES) ────────────────────────────────────────── */
+#fireflies {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* Za zawartością, ale nad tłem */
+  overflow: hidden;
+}
+.firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatFirefly 8s infinite ease-in-out;
+}
+
+/* W NOCY: parzyste świetliki są białe, nieparzyste są bursztynowo-żółte */
+.firefly:nth-child(even) {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+}
+.firefly:nth-child(odd) {
+  background-color: #e5a93b;
+  box-shadow: 0 0 10px 2px rgba(229, 169, 59, 0.8);
+}
+
+/* W DZIEŃ: Wszystkie świetliki są jasno-przyjemnie-żółte by pasować do słońca */
+[data-theme="light"] .firefly {
+  background-color: #f1c40f !important;
+  box-shadow: 0 0 12px 3px rgba(241, 196, 15, 0.6) !important;
+}
+
+@keyframes floatFirefly {
+  0% { transform: translateY(0) translateX(0) scale(0.8); opacity: 0; }
+  25% { opacity: 1; transform: translateY(-30px) translateX(20px) scale(1.2); }
+  75% { opacity: 0.8; transform: translateY(-70px) translateX(-20px) scale(0.9); }
+  100% { transform: translateY(-100px) translateX(0) scale(0.8); opacity: 0; }
+}
+
+/* ── STOPKA (AUTHOR FOOTER) ─────────────────────────────────────────────── */
+.author-footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 4rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-dark);
+}
+.author-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+}
+.author-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  font-style: italic;
+  font-weight: bold;
+}
+.author-footer i {
+  color: var(--color-success);
+  margin-top: 0.5rem;
+}
+
 .essentials-checklist {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
@@ -1318,6 +1555,201 @@ a {
   font-size: 1.1rem;
 }
 
+/* ── NAGŁÓWEK (HEADER / NAV) ─────────────────────────────────────────────── */
+.mobile-top-header {
+  display: none;
+  background: var(--nav-bg);
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-header-logo {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--logo-color);
+  letter-spacing: 1px;
+}
+.mobile-header-logo i { color: var(--color-primary); }
+
+.glass-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: none;
+  width: 100%;
+  max-width: 100%;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  height: 80px;
+}
+[data-theme="light"] .glass-nav {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.header-controls {
+  margin-left: auto; /* Push controls to the right */
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--logo-color);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-logo i { color: var(--color-primary); }
+
+/* --- Dodatki do Logo i Tytułu --- */
+.text-red {
+  color: #cf5c5c; /* czerwony dla grzybów */
+  font-weight: 800;
+}
+.title-grzybow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1em; /* lekko większe */
+}
+
+/* --- Animowane tło w nagłówku (Dzień / Noc) --- */
+.header-animated-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.bg-day, .bg-night {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  overflow: hidden;
+}
+.bg-night { 
+  opacity: 1; 
+  background: linear-gradient(to bottom, #091321, #132a40); 
+}
+[data-theme="light"] .bg-night { opacity: 0; }
+[data-theme="light"] .bg-day { opacity: 1; }
+
+.bg-day {
+  background: linear-gradient(to bottom, #74b9ff, #a29bfe);
+}
+
+.moon {
+  position: absolute; top: 15%; right: 15%; width: 24px; height: 24px;
+  background: #f1f5f9; border-radius: 50%;
+  box-shadow: 0 0 15px #f1f5f9;
+}
+.stars {
+  position: absolute; top: 10%; left: 5%; width: 2px; height: 2px; background: #fff;
+  box-shadow: 30px 15px #fff, 80px 5px #fff, 150px 25px #fff, 250px 10px #fff, 350px 20px #fff, 450px 5px #fff, 600px 15px #fff, 800px 5px #fff;
+  animation: twinkle 3s infinite alternate;
+}
+@keyframes twinkle { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+.sun {
+  position: absolute; top: 15%; right: 15%; width: 30px; height: 30px;
+  background: #f1c40f; border-radius: 50%;
+  box-shadow: 0 0 25px #f1c40f, 0 0 50px #f39c12;
+  animation: pulseSun 4s infinite alternate;
+}
+@keyframes pulseSun { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+
+.cloud {
+  position: absolute; background: #fff; border-radius: 20px; opacity: 0.9;
+}
+.cloud::before, .cloud::after {
+  content: ''; position: absolute; background: #fff; border-radius: 50%;
+}
+.cloud-1 { top: 20%; left: 10%; width: 60px; height: 20px; animation: drift 40s infinite linear; }
+.cloud-1::before { top: -10px; left: 10px; width: 30px; height: 30px; }
+.cloud-1::after { top: -5px; right: 10px; width: 20px; height: 20px; }
+
+.cloud-2 { top: 35%; left: -20%; width: 50px; height: 16px; animation: drift 25s infinite linear 10s; }
+.cloud-2::before { top: -8px; left: 8px; width: 25px; height: 25px; }
+
+@keyframes drift { 0% { transform: translateX(-100px); } 100% { transform: translateX(1300px); } }
+
+/* Lasy w tle nagłówka */
+.trees-day, .trees-night {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 35px;
+}
+.trees-day {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" preserveAspectRatio="none"><path d="M0,35 L0,20 L5,10 L10,25 L15,5 L20,22 L25,12 L30,28 L35,8 L40,25 L45,15 L50,30 L55,10 L60,25 L65,5 L70,22 L75,12 L80,28 L85,8 L90,25 L95,15 L100,30 L100,35 Z" fill="%232d6a4f"/></svg>') repeat-x;
+  background-size: contain;
+}
+.trees-night {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" preserveAspectRatio="none"><path d="M0,35 L0,20 L5,10 L10,25 L15,5 L20,22 L25,12 L30,28 L35,8 L40,25 L45,15 L50,30 L55,10 L60,25 L65,5 L70,22 L75,12 L80,28 L85,8 L90,25 L95,15 L100,30 L100,35 Z" fill="%230b1b13"/></svg>') repeat-x;
+  background-size: contain;
+}
+
+/* --- Kontrolki (Header Controls) --- */
+.control-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  backdrop-filter: blur(5px);
+}
+.control-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #000;
+}
+[data-theme="light"] .control-btn {
+  background: rgba(0,0,0,0.15);
+  border-color: rgba(0,0,0,0.2);
+  color: #000;
+}
+[data-theme="light"] .control-btn:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
 .comparison-img-wrapper {
   width: 100%;
   height: 180px;
@@ -1353,7 +1785,8 @@ a {
   .section { padding: 4rem 0; }
   .section-title { font-size: 2.2rem; }
   .modal-title { font-size: 2rem; }
-  .modal-body { padding: 1.8rem; }
+  .modal-body { padding: 1.5rem; }
+  .modal-header-img { height: 160px; }
   .quiz-card { padding: 1.8rem; }
   .essentials-checklist { padding: 1.8rem; }
   
@@ -1452,6 +1885,82 @@ body {
 @media (max-width: 768px) {
   .nav-links {
     display: none; /* schowane na mobile dla prostoty */
+  }
+  .desktop-controls {
+    display: none;
+  }
+}
+
+/* ── MOBILNE MENU DOLNE (MOBILE BOTTOM NAV) ──────────────────────────────── */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(7, 12, 9, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid var(--color-border);
+  display: none;
+  justify-content: space-around;
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  z-index: 1000;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
+}
+
+.mobile-nav-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: var(--transition-fast);
+}
+
+.mobile-nav-btn i {
+  font-size: 1.3rem;
+}
+
+.mobile-nav-btn span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.mobile-nav-btn.active {
+  color: var(--color-primary);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.map-nav-btn {
+  color: var(--color-success) !important;
+  position: relative;
+}
+.map-nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--color-success-bg);
+  border-radius: 8px;
+  z-index: -1;
+  opacity: 0.5;
+}
+.map-nav-btn.active {
+  background: var(--color-success) !important;
+  color: var(--color-bg-darkest) !important;
+  box-shadow: 0 4px 15px rgba(82, 183, 136, 0.4);
+}
+.map-nav-btn.active::before {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
   }
 }
 
@@ -1700,7 +2209,7 @@ body {
 
 .wizard-options-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   gap: 1.5rem;
 }
 
@@ -1755,7 +2264,7 @@ body {
 
 .wizard-checkboxes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 1.5rem;
 }
 
@@ -2027,7 +2536,7 @@ body {
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 2rem;
 }
 
@@ -2409,4 +2918,62 @@ body {
   }
 }
 
-
+/* --- Apple Style Theme Switch --- */
+.apple-theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+  margin-left: 0.5rem;
+}
+.apple-theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.apple-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255,255,255,0.15); /* Night mode background */
+  transition: .4s;
+  border-radius: 34px;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+}
+[data-theme='light'] .apple-slider {
+  background-color: rgba(0,0,0,0.1); /* Day mode background */
+  border-color: rgba(0,0,0,0.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+.apple-slider:before {
+  position: absolute;
+  content: '';
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+input:checked + .apple-slider:before {
+  transform: translateX(28px);
+}
+.icon-sun {
+  color: #f1c40f;
+  font-size: 13px;
+  z-index: 1;
+}
+.icon-moon {
+  color: #e2e8f0;
+  font-size: 13px;
+  z-index: 1;
+}

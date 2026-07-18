@@ -723,6 +723,366 @@ const MUSHROOM_DATABASE = [
       isSafe: true
     },
     culinary: "Śmiertelnie trująca! Prowadzi do ciężkiego uszkodzenia wątroby."
+  },
+  {
+    id: "gaska_nieksztaltna",
+    name: "Gąska Niekształtna (Siwa)",
+    scientific: "Tricholoma portentosum",
+    category: "jadalne",
+    habitat: "iglaste",
+    season: "jesień",
+    months: [8, 9, 10, 11], // Wrzesień - Grudzień
+    hymenophore: "blaszki",
+    color: "white_cream", // Szaro-czarny kapelusz, białe blaszki
+    stemFeatures: [],
+    fleshFeatures: [],
+    image: "assets/gaska_nieksztaltna.png",
+    imageUnder: "assets/gaska_nieksztaltna.png",
+    imageCross: "assets/gaska_nieksztaltna.png",
+    descUnder: "Blaszki są rzadkie, białe lub żółtawe, wycięte ząbkiem przy trzonie.",
+    descCross: "Miąższ jest biały z żółtawym odcieniem pod skórką, pachnie mąką.",
+    imageTwin: "brak",
+    nameTwin: "Brak bezpośredniego trującego sobowtóra",
+    categoryTwin: "jadalne",
+    diffs: "Często mylona z jadalną gąską ziemistą.",
+    shortDesc: "Późnojesienny, bardzo smaczny grzyb zbierany aż do mrozów.",
+    fullDesc: "Gąska niekształtna rośnie w lasach iglastych, często piaszczystych. Jest ceniona w kuchni za delikatny, orzechowo-mączny aromat.",
+    features: {
+      cap: "Szaro-czarny, z promienistymi włókienkami, często śliski.",
+      gills: "Białe do cytrynowo-żółtawych, rzadkie.",
+      stem: "Biały lub lekko żółtawy, cylindryczny.",
+      habitat: "Lasy iglaste, mchy, piaski."
+    },
+    warning: {
+      title: "Zbieranie po przymrozkach",
+      text: "To jeden z niewielu grzybów jadalnych, które można bezpiecznie zbierać po lekkich przymrozkach, o ile owocniki są zdrowe.",
+      isSafe: false
+    },
+    culinary: "Wyśmienita duszona na maśle, do zup i marynowania."
+  },
+  {
+    id: "maslak_sitarz",
+    name: "Maślak Sitarz",
+    scientific: "Suillus bovinus",
+    category: "jadalne",
+    habitat: "iglaste",
+    season: "jesień",
+    months: [7, 8, 9, 10], // Sierpień - Listopad
+    hymenophore: "rurki",
+    color: "brown", // Żółtawobrązowy
+    stemFeatures: [],
+    fleshFeatures: ["bruising"],
+    image: "assets/maslak_sitarz.png",
+    imageUnder: "assets/maslak_sitarz.png",
+    imageCross: "assets/maslak_sitarz.png",
+    descUnder: "Rurki duże, kanciaste, przypominające sitko, oliwkowo-żółte. Lekko ciemnieją po ucisku.",
+    descCross: "Miąższ żółtawy, miękki, po ugotowaniu staje się czerwonawy.",
+    imageTwin: "brak",
+    nameTwin: "Brak groźnych sobowtórów",
+    categoryTwin: "jadalne",
+    diffs: "Trudny do pomylenia ze względu na grube 'sitko' od spodu kapelusza.",
+    shortDesc: "Jadalny maślak o dużych, kanciastych rurkach przypominających sito.",
+    fullDesc: "Maślak sitarz rośnie w lasach sosnowych masowo. Po ugotowaniu jego miąższ zabarwia się na fioletowo-czerwono, co jest zjawiskiem naturalnym.",
+    features: {
+      cap: "Żółtobrązowy do rdzawego, gładki, podczas deszczu lepki.",
+      gills: "Rurki duże, nieregularne, siatkowate (jak sito).",
+      stem: "Cylindryczny, gładki, bez pierścienia.",
+      habitat: "Bory sosnowe, często wrzosowiska."
+    },
+    warning: {
+      title: "Zmiana koloru w garnku",
+      text: "Nie panikuj, gdy po obgotowaniu grzyb zrobi się fioletowo-czerwony lub różowy. To naturalna reakcja sitarza.",
+      isSafe: false
+    },
+    culinary: "Dobry jako domieszka do innych grzybów (do sosów i zup)."
+  },
+  {
+    id: "muchomor_twardawy",
+    name: "Muchomor Twardawy",
+    scientific: "Amanita spissa",
+    category: "jadalne",
+    habitat: "liściaste",
+    season: "jesień",
+    months: [6, 7, 8, 9, 10], // Lipiec - Listopad
+    hymenophore: "blaszki",
+    color: "brown", // Szarobrązowy
+    stemFeatures: ["ring", "volva"],
+    fleshFeatures: [],
+    image: "assets/muchomor_twardawy.png",
+    imageUnder: "assets/muchomor_twardawy.png",
+    imageCross: "assets/muchomor_twardawy.png",
+    descUnder: "Blaszki białe, gęste, wolne.",
+    descCross: "Miąższ gruby, biały, niezmieniający barwy. Pachnie rzepą.",
+    imageTwin: "assets/muchomor_plamisty.png",
+    nameTwin: "Muchomor Plamisty (Śmiertelny)",
+    categoryTwin: "trujące",
+    diffs: "Twardawy ma prążkowany pierścień i zapach rzepy. Plamisty ma gładki pierścień i brak prążkowania brzegu kapelusza.",
+    shortDesc: "Jadalny muchomor dla ekspertów. Niezwykle podobny do trującego plamistego.",
+    fullDesc: "Choć jadalny i smaczny, jest odradzany początkującym ze względu na ogromne podobieństwo do muchomora plamistego i cętkowanego.",
+    features: {
+      cap: "Szarobrązowy, z płaskimi, szarawymi łatkami.",
+      gills: "Białe, gęste.",
+      stem: "Solidny, biały, z mocno prążkowanym pierścieniem.",
+      habitat: "Lasy iglaste i liściaste."
+    },
+    warning: {
+      title: "Zabójcze Podobieństwo",
+      text: "Zbieraj go tylko jeśli jesteś mykologiem! Pomyłka z muchomorem plamistym bywa tragiczna w skutkach. Kluczem jest gęsto prążkowany (karbowany) pierścień u twardawego.",
+      isSafe: true
+    },
+    culinary: "Jadalny po obróbce termicznej, bardzo smaczny."
+  },
+  {
+    id: "golabek_zielonawy",
+    name: "Gołąbek Zielonawy",
+    scientific: "Russula virescens",
+    category: "jadalne",
+    habitat: "liściaste",
+    season: "lato",
+    months: [6, 7, 8, 9], // Lipiec - Październik
+    hymenophore: "blaszki",
+    color: "olive_green", // Bladozielony
+    stemFeatures: [],
+    fleshFeatures: [],
+    image: "assets/golabek_zielonawy.png",
+    imageUnder: "assets/golabek_zielonawy.png",
+    imageCross: "assets/golabek_zielonawy.png",
+    descUnder: "Blaszki białe lub jasnokremowe, kruche.",
+    descCross: "Miąższ biały, bardzo kruchy (jak ser), łagodny w smaku.",
+    imageTwin: "assets/muchomor_sromotnikowy.png",
+    nameTwin: "Muchomor Sromotnikowy (Śmiertelny)",
+    categoryTwin: "trujące",
+    diffs: "Gołąbek ma popękany kapelusz, kruchy miąższ, brak pierścienia i brak pochwy. Muchomor ma gładki kapelusz, pierścień i pochwę.",
+    shortDesc: "Jeden z najsmaczniejszych gołąbków, o charakterystycznym spękanym kapeluszu.",
+    fullDesc: "Uważany za najlepszego z gołąbków. Należy uważać przy zbieraniu, by nie pomylić z muchomorem sromotnikowym.",
+    features: {
+      cap: "Bladozielony do patynowego, skóra popękana na drobne poletka, matowy.",
+      gills: "Białe do kremowych.",
+      stem: "Biały, kruchy, gruby, bez pierścienia i bez pochwy u nasady.",
+      habitat: "Lasy liściaste, pod dębami i bukami."
+    },
+    warning: {
+      title: "Uważaj na pochwę!",
+      text: "Przed włożeniem do koszyka wykręć całego grzyba, aby upewnić się, że nie wyrasta z pochwy (co oznaczałoby muchomora sromotnikowego). Pierścienia również ma brakować.",
+      isSafe: true
+    },
+    culinary: "Świetny na patelnię, pieczony i gotowany."
+  },
+  {
+    id: "sarniak",
+    name: "Sarniak Dachówkowaty",
+    scientific: "Sarcodon imbricatus",
+    category: "jadalne",
+    habitat: "iglaste",
+    season: "jesień",
+    months: [7, 8, 9, 10], // Sierpień - Listopad
+    hymenophore: "kolce",
+    color: "brown",
+    stemFeatures: [],
+    fleshFeatures: [],
+    image: "assets/sarniak_dachowkowaty.png",
+    imageUnder: "assets/sarniak_dachowkowaty.png",
+    imageCross: "assets/sarniak_dachowkowaty.png",
+    descUnder: "Pod spodem kapelusza ma drobne, szare do brązowawych kolce (nie blaszki ani rurki).",
+    descCross: "Miąższ u młodych jasny i sprężysty, u starszych twardy i gorzkawy. Ma lekko korzenny zapach.",
+    imageTwin: "assets/borowik_szlachetny.png", 
+    nameTwin: "Inne gatunki z kolcami",
+    categoryTwin: "niejadalne",
+    diffs: "Sarniaka łatwo rozpoznać po grubych, dachówkowato ułożonych łuskach na wierzchu i kolcach pod spodem. Trudno go pomylić z trującym grzybem.",
+    shortDesc: "Bardzo charakterystyczny, duży grzyb z dachówkowatymi łuskami i kolcami pod spodem.",
+    fullDesc: "Popularna 'sarna' lub 'łoszak'. Najlepszy jest młody, starsze okazy robią się łykowate i gorzkie. Rośnie często gromadnie w borach iglastych.",
+    features: {
+      cap: "Duży (do 20 cm), płaski, pokryty grubymi, odstającymi łuskami niczym dachówki.",
+      gills: "Hymenofor kolczasty – miękkie, kruche kolce.",
+      stem: "Krótki, gruby, jasnobrązowy.",
+      habitat: "Bory sosnowe i świerkowe, na piaszczystych glebach."
+    },
+    warning: {
+      title: "Zbieraj tylko młode okazy",
+      text: "Starsze osobniki są twarde, łykowate i niesmaczne. Do spożycia nadają się tylko młode o jasnym miękkim miąższu.",
+      isSafe: true
+    },
+    culinary: "Świetny po ususzeniu do zup jako aromatyczna przyprawa (np. w proszku), starsze niesmaczne."
+  },
+  {
+    id: "sromotnik_smrodliwy",
+    name: "Sromotnik Smrodliwy",
+    scientific: "Phallus impudicus",
+    category: "niejadalne",
+    habitat: "liściaste",
+    season: "lato",
+    months: [6, 7, 8, 9, 10],
+    hymenophore: "inny",
+    color: "green",
+    stemFeatures: [],
+    fleshFeatures: [],
+    image: "assets/sromotnik_smrodliwy.png",
+    imageUnder: "assets/sromotnik_smrodliwy.png",
+    imageCross: "assets/sromotnik_smrodliwy.png",
+    descUnder: "Główka grzyba pokryta jest oliwkowozielonym, śluzowatym zarodnikiem o intensywnym zapachu padliny.",
+    descCross: "Grzyb wyrasta z 'czarciego jaja', tworząc porowaty, gąbczasty trzon.",
+    imageTwin: "assets/smardz_jadalny.png",
+    nameTwin: "Smardz",
+    categoryTwin: "jadalne",
+    diffs: "Smardz ma pofałdowaną, przypominającą plaster miodu główkę i pachnie grzybowo, Sromotnik ma śluz i cuchnie padliną, zwabiając muchy.",
+    shortDesc: "Wydziela intensywny smród zgniłego mięsa, wyczuwalny z daleka.",
+    fullDesc: "Niezwykły grzyb wyrastający z przypominającego jajo tworu. Jego odór zwabia muchy, które rozsiewają zarodniki. Ze względu na kształt nosi łacińską nazwę Phallus.",
+    features: {
+      cap: "Kształt naparstka, pokryty oliwkowozielonym, śmierdzącym śluzem.",
+      gills: "Brak blaszek czy rurek, masa zarodnikowa rozpływa się w śluz.",
+      stem: "Biały, porowaty, pusty w środku, gąbczasty.",
+      habitat: "Lasy liściaste i mieszane, parki, miejsca bogate w próchnicę."
+    },
+    warning: {
+      title: "Zapach nie do zniesienia",
+      text: "Grzyb odstrasza już samym zapachem. Choć nie jest silnie toksyczny, jest absolutnie kulinarnie bezużyteczny z powodu wstrętnego smrodu.",
+      isSafe: true
+    },
+    culinary: "Niejadalny."
+  },
+  {
+    id: "borowik_ceglastopory",
+    name: "Borowik Ceglastopory",
+    scientific: "Neoboletus luridiformis",
+    category: "jadalne",
+    habitat: "iglaste",
+    season: "lato",
+    months: [5, 6, 7, 8, 9, 10],
+    hymenophore: "rurki",
+    color: "brown",
+    stemFeatures: ["dotted"],
+    fleshFeatures: ["blue"],
+    image: "assets/borowik_ceglastopory.png",
+    imageUnder: "assets/borowik_ceglastopory.png",
+    imageCross: "assets/borowik_ceglastopory.png",
+    descUnder: "Rurki są intensywnie krwistoczerwone (ceglaste) u dorosłych owocników. Po dotknięciu błyskawicznie sinieją.",
+    descCross: "Miąższ jaskrawożółty, po przekrojeniu natychmiast mocno sinieje/błękitnieje.",
+    imageTwin: "assets/borowik_szatanski.png",
+    nameTwin: "Borowik Szatański",
+    categoryTwin: "trujące",
+    diffs: "Ceglastopory ma kapelusz CIEMNOBRĄZOWY i kropki na trzonie. Szatański ma kapelusz BARDZO JASNY (białawy, srebrzysty) i siateczkę na pękatym, purpurowym trzonie.",
+    shortDesc: "Pospolicie nazywany 'ceglasiem' lub 'poczciwym szatanem'. Świetny jadalny, ale wymaga dłuższego gotowania.",
+    fullDesc: "Choć sinienie odstrasza wielu grzybiarzy, jest to jeden z najsmaczniejszych grzybów. Surowy lub niedogotowany może powodować kłopoty żołądkowe, dlatego trzeba go obgotować.",
+    features: {
+      cap: "Ciemnobrązowy, zamszowy, ciemnieje pod wpływem dotyku.",
+      gills: "Pory czerwono-ceglaste, silnie siniejące po ucisku.",
+      stem: "Żółty w tle, gęsto pokryty czerwonymi STRZĘPKAMI/KROPKAMI (brak wyraźnej siatki).",
+      habitat: "Głównie górzyste lasy iglaste i mieszane."
+    },
+    warning: {
+      title: "Uwaga – Wymaga ugotowania",
+      text: "Surowy jest lekko toksyczny (powoduje problemy z żołądkiem). Należy go gotować co najmniej 15-20 minut przed usmażeniem czy dodaniem do sosu.",
+      isSafe: false
+    },
+    culinary: "Wspaniały na sosy i do zup, zachowuje twardą konsystencję po ugotowaniu."
+  },
+  {
+    id: "kolczak_oblaczasty",
+    name: "Kolczak Obłączasty",
+    scientific: "Hydnum repandum",
+    category: "jadalne",
+    habitat: "liściaste",
+    season: "jesień",
+    months: [7, 8, 9, 10],
+    hymenophore: "kolce",
+    color: "yellow_orange",
+    stemFeatures: [],
+    fleshFeatures: [],
+    image: "assets/kolczak_oblaczasty.png",
+    imageUnder: "assets/kolczak_oblaczasty.png",
+    imageCross: "assets/kolczak_oblaczasty.png",
+    descUnder: "Charakterystyczne drobne, kruche, kremowo-różowawe kolce pod spodem.",
+    descCross: "Miąższ blady, kruchy, po przekrojeniu powoli lekko żółknie.",
+    imageTwin: "assets/pieprznik_jadalny.png",
+    nameTwin: "Kurka (Pieprznik jadalny)",
+    categoryTwin: "jadalne",
+    diffs: "Kolczak ma kolce, a kurka fałdy (listewki). Barwa kolczaka jest bardziej pastelowo-morelowa.",
+    shortDesc: "Jeden z najsmaczniejszych i najłatwiejszych do rozpoznania grzybów o kolczastym hymenoforze.",
+    fullDesc: "Pospolity grzyb późnego lata i jesieni. Bardzo chętnie zbierany, gdyż praktycznie nie posiada trujących sobowtórów i rzadko bywa robaczywy.",
+    features: {
+      cap: "Bladopomarańczowy, kremowy do łososiowego. Matowy, nieregularnie pofalowany.",
+      gills: "Łamliwe igiełki (kolce) biegnące lekko wzdłuż trzonu.",
+      stem: "Krótki, masywny, bielszy niż kapelusz.",
+      habitat: "Lasy liściaste i iglaste, lubi mech i buczynę."
+    },
+    warning: {
+      title: "Goryczka starszych owocników",
+      text: "Starsze owocniki mogą być gorzkawe. Często pomaga osunięcie kolców palcem przed gotowaniem.",
+      isSafe: true
+    },
+    culinary: "Świetny jako grzyb duszony, doskonały w marynacie octowej."
+  },
+  {
+    id: "czernidlak",
+    name: "Czernidłak Kołpakowaty",
+    scientific: "Coprinus comatus",
+    category: "jadalne",
+    habitat: "inny",
+    season: "jesień",
+    months: [8, 9, 10],
+    hymenophore: "blaszki",
+    color: "white",
+    stemFeatures: [],
+    fleshFeatures: [],
+    image: "assets/czernidlak_kolpakowaty.png",
+    imageUnder: "assets/czernidlak_kolpakowaty.png",
+    imageCross: "assets/czernidlak_kolpakowaty.png",
+    descUnder: "Blaszki u młodych grzybów są białe, potem różowieją, a na końcu całkowicie rozpływają się w czarną 'atramentową' ciecz.",
+    descCross: "Miąższ jest bardzo delikatny, biały.",
+    imageTwin: "assets/czernidlak_pospolity.png", 
+    nameTwin: "Czernidłak pospolity",
+    categoryTwin: "trujące",
+    diffs: "Czernidłak pospolity (gładki kapelusz) w połączeniu z alkoholem jest toksyczny. Kołpakowaty (z dużymi odstającymi łuskami) jest bezpieczny nawet z alkoholem.",
+    shortDesc: "Przedziwny grzyb o kapeluszu w kształcie walca, który z czasem rozpływa się w czarny płyn.",
+    fullDesc: "Bardzo smaczny grzyb jadalny, ale tylko wtedy, gdy jego blaszki są jeszcze całkowicie białe. Rośnie najczęściej na trawnikach i parkach.",
+    features: {
+      cap: "Cylindryczny, biały, z odstającymi kudłatymi łuskami.",
+      gills: "Wolne, bardzo gęste. Początkowo białe, potem czarne i płynne.",
+      stem: "Biały, wysoki i smukły.",
+      habitat: "Łąki, trawniki, parki, często rośnie w miastach."
+    },
+    warning: {
+      title: "Uwaga na starzenie",
+      text: "Zbieraj wyłącznie młode, w całości białe osobniki. Należy je przyrządzić najpóźniej do 2-3 godzin od zebrania.",
+      isSafe: true
+    },
+    culinary: "Delikatny smak, idealny do duszenia na maśle."
+  },
+  {
+    id: "lejkowiec",
+    name: "Lejkowiec Dęty",
+    scientific: "Craterellus cornucopioides",
+    category: "jadalne",
+    habitat: "liściaste",
+    season: "jesień",
+    months: [8, 9, 10, 11],
+    hymenophore: "inny",
+    color: "brown", 
+    stemFeatures: [],
+    fleshFeatures: [],
+    image: "assets/lejkowiec_dety.png",
+    imageUnder: "assets/lejkowiec_dety.png",
+    imageCross: "assets/lejkowiec_dety.png",
+    descUnder: "Zewnętrzna część jest gładka lub lekko pofałdowana, szara do czarnej, bez wyraźnych blaszek czy rurek.",
+    descCross: "Cieniutki jak pergamin, rurkowaty i pusty w środku, miąższ niemal nie istnieje.",
+    imageTwin: "assets/brak.png",
+    nameTwin: "Inne drobne grzyby",
+    categoryTwin: "niejadalne",
+    diffs: "Jego rurkowaty, rozszerzający się ku górze kształt czarnej trąbki jest nie do pomylenia z trującym grzybem.",
+    shortDesc: "Zwany też 'trąbką zmarłych'. Ma bardzo silny aromat, to wybitna przyprawa grzybowa.",
+    fullDesc: "Wygląda ponuro i mrocznie, co odrzuca niedoświadczonych grzybiarzy. We Francji z powodu smaku nazywany 'truflem dla ubogich'.",
+    features: {
+      cap: "Kształt głębokiego lejka, wewnątrz szaroczarny, łuseczkowaty.",
+      gills: "Brak - zewnątrz kapelusza gładkie/lekko pofalowane.",
+      stem: "Trzon to kontynuacja lejka kapelusza, pusty w środku.",
+      habitat: "Lasy liściaste, buczyny i dąbrowy."
+    },
+    warning: {
+      title: "Trudny do zauważenia",
+      text: "Grzyb ten idealnie wtapia się w jesienne, mokre i ciemne liście na dnie bukowego lasu.",
+      isSafe: true
+    },
+    culinary: "Znakomity do suszenia! Sproszkowany to wyśmienita przyprawa."
   }
 ];
 
@@ -849,6 +1209,39 @@ const QUIZ_QUESTIONS = [
       { text: "Świadczy to o obecności psylocybiny", correct: false }
     ],
     feedback: "Znakomicie! Szybkie sinienie podgrzybka to nieszkodliwa reakcja chemiczna utleniania się związków w nim zawartych."
+  },
+  {
+    question: "Gotujesz zupę z maślakiem sitarzem. Po chwili zauważasz, że grzyby w garnku zrobiły się purpurowo-czerwonawe. Co to oznacza?",
+    image: "assets/maslak_sitarz.png",
+    options: [
+      { text: "Zebrałem trującego sobowtóra, muszę wylać zupę", correct: false },
+      { text: "To naturalna reakcja tego gatunku podczas obróbki termicznej", correct: true },
+      { text: "Grzyby były zepsute", correct: false },
+      { text: "Woda była zbyt twarda", correct: false }
+    ],
+    feedback: "Zgadza się! Maślak sitarz naturalnie zmienia barwę miąższu na czerwono-fioletową po obróbce termicznej."
+  },
+  {
+    question: "Spotykasz w lesie grzyba o szaro-brązowym kapeluszu i pierścieniu, u którego blaszki są białe. Pierścień jest wyraźnie prążkowany od góry, a grzyb pachnie rzepą.",
+    image: "assets/muchomor_twardawy.png",
+    options: [
+      { text: "To śmiertelnie trujący muchomor sromotnikowy", correct: false },
+      { text: "To muchomor twardawy (jadalny, ale ryzykowny)", correct: true },
+      { text: "To opieńka miodowa", correct: false },
+      { text: "To czubajka kania", correct: false }
+    ],
+    feedback: "Doskonale. To jadalny muchomor twardawy. Jego prążkowany pierścień odróżnia go od śmiertelnie trującego muchomora plamistego."
+  },
+  {
+    question: "Widzisz zielonawego grzyba bez pierścienia, bez pochwy w ziemi, którego miąższ w trzonie kruszy się łatwo w palcach jak kreda. Kapelusz jest spękany, patynowy. Co to?",
+    image: "assets/golabek_zielonawy.png",
+    options: [
+      { text: "Muchomor sromotnikowy", correct: false },
+      { text: "Zielona gąska", correct: false },
+      { text: "Gołąbek zielonawy", correct: true },
+      { text: "Pieczarka łąkowa", correct: false }
+    ],
+    feedback: "Brawo! Kruchy trzon łamiący się jak kreda i popękany, patynowy kapelusz bez pochwy u nasady to cechy pysznego gołąbka zielonawego."
   }
 ];
 
@@ -1884,6 +2277,86 @@ function showQuizResults() {
   quizRank.innerHTML = rank;
 }
 
+// ── MAPA GRZYBIARZY (LEAFLET.JS) ─────────────────────────────────────────
+let appMap = null;
+let mapMarkers = [];
+
+function initMap() {
+  if (appMap !== null) {
+    appMap.invalidateSize();
+    return;
+  }
+  
+  // Współrzędne centrum Polski
+  appMap = L.map('mushroom-map').setView([52.069, 19.480], 6);
+  
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(appMap);
+
+  // Dodawanie znacznika po kliknięciu
+  appMap.on('click', function(e) {
+    addMarker(e.latlng.lat, e.latlng.lng, "Twoje znalezisko");
+  });
+}
+
+function addMarker(lat, lng, title) {
+  const customIcon = L.divIcon({
+    className: 'custom-map-marker',
+    html: '<i class="fa-solid fa-location-dot" style="color: var(--color-success); font-size: 2rem; text-shadow: 0 2px 5px rgba(0,0,0,0.5);"></i>',
+    iconSize: [30, 42],
+    iconAnchor: [15, 42]
+  });
+
+  const marker = L.marker([lat, lng], {icon: customIcon}).addTo(appMap)
+    .bindPopup(`<b>${title}</b><br>Dodano: ${new Date().toLocaleDateString()}`)
+    .openPopup();
+    
+  mapMarkers.push(marker);
+}
+
+document.getElementById('btn-map-gps').addEventListener('click', () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      appMap.setView([lat, lng], 13);
+      addMarker(lat, lng, "Twoja lokalizacja (GPS)");
+    }, () => {
+      alert("Nie udało się pobrać lokalizacji GPS. Sprawdź uprawnienia przeglądarki.");
+    });
+  } else {
+    alert("Geolokalizacja nie jest wspierana przez Twoją przeglądarkę.");
+  }
+});
+
+document.getElementById('btn-map-search').addEventListener('click', async () => {
+  const query = document.getElementById('map-search-input').value;
+  if (!query) return;
+  
+  const searchBtn = document.getElementById('btn-map-search');
+  const originalText = searchBtn.innerHTML;
+  searchBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+  
+  try {
+    const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}, Poland`);
+    const data = await response.json();
+    if (data && data.length > 0) {
+      const lat = data[0].lat;
+      const lng = data[0].lon;
+      appMap.setView([lat, lng], 12);
+      addMarker(lat, lng, `Lokalizacja: ${query}`);
+    } else {
+      alert("Nie znaleziono takiej lokalizacji. Spróbuj innej nazwy miejscowości lub kodu pocztowego.");
+    }
+  } catch (err) {
+    console.error("Błąd wyszukiwania lokalizacji:", err);
+    alert("Wystąpił błąd podczas wyszukiwania. Spróbuj ponownie.");
+  }
+  
+  searchBtn.innerHTML = originalText;
+});
+
 // ── INTERAKTYWNA CHECKLISTA (CHECKLIST) ──────────────────────────────────
 function updateChecklist() {
   const total = checkboxes.length;
@@ -1940,6 +2413,16 @@ function switchMobileScreen(screenId) {
     document.getElementById("calendar").classList.add("active-screen");
     const safetyBanner = document.getElementById("safety-code");
     if (safetyBanner) safetyBanner.classList.add("active-screen");
+  } else if (screenId === "map-section") {
+    const mapSec = document.getElementById("map-section");
+    if (mapSec) {
+      mapSec.classList.add("active-screen");
+      // Po pokazaniu elementu, musimy dać Leaflet chwilę, by odświeżył rozmiar po re-flow
+      setTimeout(() => {
+        initMap();
+        if (appMap) appMap.invalidateSize();
+      }, 300);
+    }
   } else {
     const calendarSec = document.getElementById("calendar");
     if (calendarSec) calendarSec.classList.remove("active-screen");
@@ -1984,16 +2467,81 @@ function initMobileSPA() {
       });
       const safetyBanner = document.getElementById("safety-code");
       if (safetyBanner) safetyBanner.classList.remove("active-screen");
+      
+      // Jeżeli użytkownik rozszerzy okno, na PC mapa ma być zawsze zainicjalizowana
+      setTimeout(() => {
+        initMap();
+      }, 500);
     }
   });
 
   if (window.innerWidth <= 768) {
     switchMobileScreen("atlas");
+  } else {
+    setTimeout(() => {
+      initMap();
+    }, 500);
   }
+}
+
+// ── AMBIENT AUDIO ORAZ TRYB DZIEŃ/NOC (DAY/NIGHT THEME) ─────────────────
+function initThemeAndAudio() {
+  const audioEl = document.getElementById("forest-ambient");
+  const btnAudioDesktop = document.getElementById("btn-audio-desktop");
+  const btnAudioMobile = document.getElementById("btn-audio-mobile");
+  
+  const themeToggleDesktop = document.getElementById("theme-toggle-desktop");
+  const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+
+  // --- Obsługa Audio ---
+  let isAudioPlaying = false;
+  
+  function toggleAudio() {
+    if (!audioEl) return;
+    
+    if (isAudioPlaying) {
+      audioEl.pause();
+      isAudioPlaying = false;
+      if (btnAudioDesktop) btnAudioDesktop.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+      if (btnAudioMobile) btnAudioMobile.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    } else {
+      audioEl.play().then(() => {
+        isAudioPlaying = true;
+        if (btnAudioDesktop) btnAudioDesktop.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        if (btnAudioMobile) btnAudioMobile.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+      }).catch(err => {
+        console.error("Autoplay zablokowany przez przeglądarkę:", err);
+      });
+    }
+  }
+
+  if (btnAudioDesktop) btnAudioDesktop.addEventListener("click", toggleAudio);
+  if (btnAudioMobile) btnAudioMobile.addEventListener("click", toggleAudio);
+
+  // --- Obsługa Trybu Motywu (Dzień/Noc) ---
+  let currentTheme = localStorage.getItem("theme") || "dark";
+  document.documentElement.setAttribute("data-theme", currentTheme);
+  
+  if (themeToggleDesktop) themeToggleDesktop.checked = (currentTheme === "light");
+  if (themeToggleMobile) themeToggleMobile.checked = (currentTheme === "light");
+
+  function onThemeChange(e) {
+    currentTheme = e.target.checked ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    localStorage.setItem("theme", currentTheme);
+    
+    if (themeToggleDesktop) themeToggleDesktop.checked = (currentTheme === "light");
+    if (themeToggleMobile) themeToggleMobile.checked = (currentTheme === "light");
+  }
+
+  if (themeToggleDesktop) themeToggleDesktop.addEventListener("change", onThemeChange);
+  if (themeToggleMobile) themeToggleMobile.addEventListener("change", onThemeChange);
 }
 
 // ── EVENT LISTENERS (ZDARZENIA W DOM) ────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
+  // Inicjalizacja dźwięku i motywu
+  initThemeAndAudio();
   // Rejestracja wtyczek GSAP
   gsap.registerPlugin(ScrollTrigger);
 
